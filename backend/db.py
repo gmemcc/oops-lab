@@ -5,7 +5,7 @@ from fastapi import Depends
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine, AsyncSession
 
-from settings import settings
+from backend.settings import settings
 
 logger = logging.getLogger(__name__)
 
