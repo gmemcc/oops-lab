@@ -8,4 +8,9 @@
     path: '/home',
     component: './Home',
   },
+  {
+    name: '周报管理',
+    path: '/reports',
+    component: './Reports',
+  },
 ];

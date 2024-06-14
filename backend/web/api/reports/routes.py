@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from fastapi_pagination import paginate
+from fastapi_pagination.ext.sqlalchemy import paginate
 
 from backend.db import AsyncSession
 from backend.models.reports import ReportModel, Report
@@ -8,10 +8,10 @@ from backend.web.pagination import Page
 router = APIRouter(prefix="/reports")
 
 
-@router.get("", response_model_exclude_none=True)
-async def query(session: AsyncSession, reporter: str, work_content: str, report_time: str) -> Page[ReportModel]:
-    stmt = Report.build_query(reporter, work_content, report_time)
-    reports = await paginate(session, stmt)
+@router.post("/query", response_model_exclude_none=True)
+async def query(sess: AsyncSession, reporter: str | None = None, report_time: str | None = None) -> Page[ReportModel]:
+    stmt = Report.build_query(reporter, report_time)
+    reports = await paginate(sess, stmt)
     return reports
 
 

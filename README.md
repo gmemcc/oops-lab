@@ -93,3 +93,32 @@ yarn create umi
 cd frontend
 yarn start
 ```
+
+# 示例前端业务模块
+
+在这里，我们将实现一个简单的前端业务模块，用于管理周报。假设每个周报有：报告人、报告日期、本周工作内容、重点事件这些字段。
+
+## 生成API调用Stubs
+
+因为后端已经实现了增删改查的接口，我们需要自动生成前端stub代码，以便调用这些接口：
+```shell
+yarn max openapi
+
+```
+此命令完成后，会在 `frontend/src/services/lab` 目录下生成对应的API调用代码。
+
+## 编写前端页面
+
+前端页面放在`frontend/src/pages` 目录下，我们在这个目录下创建一个`Reports`目录，用于存放周报管理相关的页面。
+
+模块的入口文件为`Reports/index.tsx`。
+
+## 注册路由
+
+需要在`frontend/config/routes.ts`中注册路由，这样前端路由系统才能找到我们的页面。
+
+## 启动前端服务 
+
+启动前端服务后，您可以在浏览器中访问 http://localhost:8000/reports 来查看周报管理页面。
+
+![img.png](assets/img.png)

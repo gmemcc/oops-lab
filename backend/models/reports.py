@@ -18,7 +18,7 @@ class Report(Base):
     concerned_incs: Mapped[str] = mapped_column("concerned_incs", String, nullable=False, comment="concerned incs")
 
     @classmethod
-    def build_query(cls, reporter: str | None, work_content: str | None, report_time: str | None):
+    def build_query(cls, reporter: str | None, report_time: str | None, work_content: str | None = None):
         stmt = select(cls)
         where = None
         if reporter:
@@ -83,8 +83,8 @@ class Report(Base):
 
 
 class ReportModel(CamelModel):
-    id: int | None
-    reporter: str | None
-    report_time: datetime | None
-    work_content: str | None
-    concerned_incs: str | None
+    id: int | None = None
+    reporter: str | None = None
+    report_time: datetime | None = None
+    work_content: str | None = None
+    concerned_incs: str | None = None
