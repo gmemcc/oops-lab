@@ -73,8 +73,23 @@ async def startup():
 mkdir frontend
 cd frontend
 npm install yarn
-export PATH=$PATH:./node_modules/.bin
+export PATH=./node_modules/.bin:$PATH
 yarn create umi
 # 选择 Ant Design Pro、yarn、npm
 ```
 等待依赖安装完成即可。
+
+# 前端代码骨架
+
+现在我们要对上述命令生成的前端代码进行一些修改，以适应我们的需求。
+
+1. 修改一些UI元素，比如页面标题等
+2. 去掉一些不需要的页面
+3. 配置从何处读取OpenAPI定义，以便生成API调用代码
+
+现在，我们可以使用如下命令启动前端服务：
+
+```shell
+cd frontend
+yarn start
+```
