@@ -20,7 +20,24 @@ source venv/bin/activate
 然后安装依赖
 
 ```shell
-pip install fastapi==0.103.1 uvicorn==0.23.2 pydantic==2.3.0 SQLAlchemy==2.0.20
+pip install fastapi==0.103.1 uvicorn==0.23.2 pydantic==2.3.0 SQLAlchemy==2.0.20 pydantic-settings==2.0.3
 # output the installed dependencies to requirements.txt
 pip freeze > requirements.txt
 ```
+
+# 后端骨架代码
+
+代码内容参见`backend`目录。使用如下命令启动后端服务：
+
+```shell
+cd backend
+uvicorn main:app --reload --port 6001
+```
+
+测试后端服务是否正常运行：
+
+```shell
+curl http://127.0.0.1:6001
+# {"message":"Welcome to OverseasOps Lab"}
+```
+
