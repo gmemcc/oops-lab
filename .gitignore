@@ -1,3 +1,5 @@
 .local
 .idea
 venv
+frontend/node_modules
+frontend/src/.umi

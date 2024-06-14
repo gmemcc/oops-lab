@@ -62,3 +62,19 @@ async def startup():
 它用于在数据库中执行DDL语句，创建数据表。这段代码会在服务启动时执行。
 
 启动服务后， 您现在可以在 http://127.0.0.1:6001/docs 看到Swagger UI，API基于OpenAPI 3规范暴露。
+
+# 安装基于TypeScript的前端的依赖
+
+假设你已经安装了Node.js v18.19和NPM。
+
+执行如下命令安装前端依赖：
+
+```shell
+mkdir frontend
+cd frontend
+npm install yarn
+export PATH=$PATH:./node_modules/.bin
+yarn create umi
+# 选择 Ant Design Pro、yarn、npm
+```
+等待依赖安装完成即可。
